@@ -1,0 +1,11 @@
+dataSource:
+  driverClassName: com.mysql.cj.jdbc.Driver
+  dbCreate: update
+  username: root
+  pasword: ''
+
+environments:
+  development:
+    dataSource:
+      dbCreate: update
+      url: "jdbc:mysql://localhost/project_monitoring?userUnicode=yes&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
