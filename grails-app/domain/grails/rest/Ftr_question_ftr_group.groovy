@@ -5,8 +5,8 @@ class Ftr_question_ftr_group {
     Long ftr_question_id
     Long ftr_project_group_id
     Long ftr_master_id
-    String Answer
-    Long version
+    String answer
+    // Long version
 
     static constraints = {
     }

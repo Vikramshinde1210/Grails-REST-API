@@ -3,16 +3,16 @@ package grails.rest
 class Industryproject {
 
     Long id
-    Long Company_id
-    String DueDate
-    String Description
-    Long FacultyRef
-    String Links
-    String College_id
+    Long company_id
+    String duedate
+    String description
+    Long facultyref
+    String links
+    String college_id
     Long visible
 
-    static constraints = {
-    }
+    // static constraints = {
+    // }
 
     static mapping = {
         table "industryproject"

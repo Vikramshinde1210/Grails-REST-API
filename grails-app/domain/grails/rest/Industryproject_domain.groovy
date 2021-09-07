@@ -1,9 +1,9 @@
 package grails.rest
 
 class Industryproject_domain {
-    Long industryproject_domain_id
+    Long id
     Long industryproject_id
-    Long Domain_id
+    Long domain_id
 
 
     static constraints = {

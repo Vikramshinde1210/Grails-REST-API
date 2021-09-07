@@ -4,7 +4,7 @@ class Industryproject_department {
 
     Long id
     Long industryproject_id
-    Long Department_id	
+    Long department_id	
 
     static constraints = {
     }
