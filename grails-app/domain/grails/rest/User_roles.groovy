@@ -1,4 +1,5 @@
-package demo.api
+package grails.rest
+
 
 class User_roles {
 
