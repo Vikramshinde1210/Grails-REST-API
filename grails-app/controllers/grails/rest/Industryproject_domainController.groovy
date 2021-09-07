@@ -1,5 +1,4 @@
-package demo.api
-
+package grails.rest
 
 import grails.rest.*
 import grails.converters.*

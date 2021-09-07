@@ -1,4 +1,4 @@
-package demo.api
+package grails.rest
 
 import grails.gorm.transactions.Transactional
 import groovy.sql.Sql 

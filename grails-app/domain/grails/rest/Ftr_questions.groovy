@@ -1,4 +1,4 @@
-package demo.api
+package grails.rest
 
 class Ftr_questions {
 

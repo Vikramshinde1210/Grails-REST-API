@@ -1,4 +1,4 @@
-package demo.api
+package grails.rest
 
 class Industryproject_domain {
     Long industryproject_domain_id
