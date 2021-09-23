@@ -37,4 +37,5 @@ class CollegeController extends RestfulController {
         def College = CollegeService.delete(params,request)
         respond College
     }
+
 }
