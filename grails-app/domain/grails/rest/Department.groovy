@@ -8,6 +8,9 @@ class Department{
         version false
         id column:'Department_id'
     }
+
+    // static belongsTo = [college: College]
+
     static constraints = {
         
     }

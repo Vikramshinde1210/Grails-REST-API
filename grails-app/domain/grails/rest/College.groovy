@@ -8,6 +8,9 @@ class College{
         version false
         id column:'College_id'
     }
+
+    // static hasMany = [departments: Department]
+
     static constraints = {
         
     }

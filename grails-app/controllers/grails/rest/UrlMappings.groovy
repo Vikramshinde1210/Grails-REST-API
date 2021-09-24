@@ -3,6 +3,8 @@ package grails.rest
 class UrlMappings {
 
     static mappings = {
+        // "/department/$College_id"(controller: "department", action: "index", method:"GET")
+
         delete "/$controller/$id(.$format)?"(action:"delete")
         get "/$controller(.$format)?"(action:"index")
         get "/$controller/$id(.$format)?"(action:"show")

@@ -17,7 +17,7 @@ class DepartmentController extends RestfulController {
 
     @Override
     def show() {
-        respond DepartmentService.single(params,request)
+        respond DepartmentService.fetch(params,request)
     }
 
     @Override
