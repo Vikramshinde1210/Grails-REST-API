@@ -27,6 +27,8 @@ class UrlMappings {
 
         "/getDomains/$id"(controller: "ProjectDomain", action: "delete", method:"DELETE")
 
+        // Signin
+        "/api/auth/signin"(controller: "persons", action: "signin", method:"POST")
 
         
         "/"(controller: 'application', action:'index')
