@@ -1,9 +1,17 @@
 package grails.rest
-
+import groovy.sql.Sql
 import grails.gorm.transactions.Transactional
 
 @Transactional
 class ProjectDomainService {
+
+    def dataSource;
+      def fetch(def params, def request){
+	    String query = "select * from projectdomain where department_id="+params.id;
+            def sql = new Sql(dataSource);
+            def employeeList = sql.rows(query);
+            return employeeList
+    }
 
     def list(def params, def request) {
         return ProjectDomain.findAll()  

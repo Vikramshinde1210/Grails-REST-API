@@ -20,7 +20,7 @@ class ProjectDomainController extends RestfulController{
 
     @Override
     def show() {
-        respond projectDomainService.single(params,request)
+        respond projectDomainService.fetch(params,request)
     }
     
     @Override

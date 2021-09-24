@@ -15,6 +15,8 @@ class UrlMappings {
        
         // Guide
         "/guide"(controller: "persons", action: "guide", method:"GET")
+        "/guide/$id"(controller: "persons", action: "show", method:"GET")
+
 
         // Domain (ProjectDomain)
         "/getDomains"(controller: "ProjectDomain", action: "index", method:"GET")
