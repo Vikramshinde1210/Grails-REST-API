@@ -1,6 +1,9 @@
 package grails.rest
 
 import grails.gorm.transactions.Transactional
+import grails.gorm.DetachedCriteria
+import grails.gorm.transactions.ReadOnly
+import groovy.transform.CompileDynamic
 
 @Transactional
 class PersonsService {
@@ -37,5 +40,9 @@ class PersonsService {
         PersonsInstance = PersonsInstance.delete()
 
         return PersonsInstance
+    }
+
+    List<Persons> guideList(Integer roleId){
+        Persons.findAllByRoleid(roleId)
     }
 }

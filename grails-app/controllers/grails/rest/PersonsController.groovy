@@ -37,4 +37,8 @@ class PersonsController extends RestfulController {
         def Persons = PersonsService.delete(params,request)
         respond Persons
     }
+
+    def guide() {
+        respond PersonsService.guideList(3)
+    }
 }
