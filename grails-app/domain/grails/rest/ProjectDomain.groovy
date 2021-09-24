@@ -7,7 +7,7 @@ class ProjectDomain {
     Integer college_id
 
     static mapping = {
-        table "projectdomain"
+        table "project_domain"
         version false
         id column:'Domain_id'
     }
