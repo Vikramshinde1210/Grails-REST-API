@@ -19,9 +19,7 @@ class PersonsService {
     def save(def params, def request) {
         def PersonsJson = request.JSON
         def PersonsInstance = new Persons(PersonsJson)
-
-        PersonsInstance = PersonsInstance.save()
-
+        PersonsInstance = PersonsInstance.save(flush: true, failOnError: true)
         return PersonsInstance
     }
 
