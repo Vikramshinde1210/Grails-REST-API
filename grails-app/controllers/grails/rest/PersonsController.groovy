@@ -1,8 +1,9 @@
 package grails.rest
 
-
 import grails.rest.*
 import grails.converters.*
+
+import java.util.function.Consumer
 
 class PersonsController extends RestfulController {
     def PersonsService
@@ -40,5 +41,16 @@ class PersonsController extends RestfulController {
 
     def guide() {
         respond PersonsService.guideList(3)
+    }
+
+    def signin(){
+        def jsonRequest = request.JSON
+        Persons person = Persons.findByUsername(jsonRequest["username"])
+        if(person && person.isValidPassword(jsonRequest['password'])){
+            person.addRole(Roles.findById(person.roleid).name)
+            respond person
+        }else{
+            respond null
+        }
     }
 }

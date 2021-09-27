@@ -57,6 +57,8 @@ dependencies {
     profile "org.grails.profiles:rest-api"
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "com.h2database:h2"
+    compile 'org.grails.plugins:spring-security-core:4.0.3'
+    compile 'org.springframework.security:spring-security-crypto:5.5.2'
 
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
