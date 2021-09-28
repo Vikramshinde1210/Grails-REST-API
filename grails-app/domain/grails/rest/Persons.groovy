@@ -25,7 +25,11 @@ class Persons{
     static transients = ["springSecurityService"]
 
     boolean isValidPassword(String plainPassword){
-        return BCrypt.checkpw( plainPassword,this.password.substring(8))
+        if(this.password.startsWith("{bcrypt}")){
+            return BCrypt.checkpw( plainPassword,this.password.substring(8))
+        }
+        return BCrypt.checkpw( plainPassword,this.password)
+
     }
 
     protected void encodePassword() {
