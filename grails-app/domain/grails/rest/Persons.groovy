@@ -1,4 +1,6 @@
 package grails.rest
+
+import grails.converters.JSON
 import org.springframework.security.crypto.bcrypt.BCrypt
 
 import java.util.Date
@@ -41,6 +43,43 @@ class Persons{
     void addRole(String role){
         if(roles.size() == 0)
             roles.push("ROLE_" + role.toUpperCase())
+    }
+
+    HashMap toHashMap(){
+        HashMap hm = new HashMap()
+        hm.put("Person_Id",id)
+        hm.put("username",username)
+        hm.put("FullName",fullname)
+        hm.put("Mobile",mobile)
+        hm.put("grno_EmpCode",grno_empcode)
+        hm.put("email",email)
+        hm.put("department",department)
+        hm.put("college",college)
+        hm.put("roles",roles)
+        return hm
+    }
+
+    HashMap toHashMapWithAccessToken(){
+        HashMap hm = new HashMap()
+        hm.put("Person_Id",id)
+        hm.put("username",username)
+        hm.put("FullName",fullname)
+        hm.put("Mobile",mobile)
+        hm.put("grno_EmpCode",grno_empcode)
+        hm.put("email",email)
+        hm.put("department",department)
+        hm.put("college",college)
+        hm.put("roles",roles)
+        hm.put("accessToken",accessToken)
+        return hm
+    }
+
+    JSON toJSON(){
+        return toHashMap() as JSON
+    }
+
+    JSON toJSONWithAccessToken(){
+        return toJSONWithAccessToken() as JSON
     }
 
     def beforeInsert(){
