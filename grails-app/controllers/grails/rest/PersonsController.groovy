@@ -19,7 +19,40 @@ class PersonsController extends RestfulController {
 
     @Override
     def show() {
-        respond PersonsService.single(params,request)
+        /*
+        * Expected Headers for Authentication
+        *
+        * 1)x-access-token
+        * 2)id
+        *
+        * */
+        def accessToken = request.getHeader("x-access-token")
+        def id = request.getHeader("id")
+        if(accessToken){
+            Persons authAccount = AuthService.checkAuth(accessToken,id)
+            if(authAccount){
+                Persons requestedPerson = PersonsService.single(params,request)
+                /*
+                * roleid:
+                *
+                * 3: Guide
+                * 4: Hod
+                * 5: Director
+                * 6: Management
+                * 7: Coordinator
+                *
+                * Only respond if:
+                * 1) User requesting his own data
+                * 2) User requesting is Director or Management
+                * 3) User requesting student data with roleid as given above
+                * */
+                if(authAccount.id == params?.id as Integer || authAccount.roleid == 5 || authAccount.roleid == 6 ||(authAccount.roleid > 2 && authAccount.roleid <= 7 && (requestedPerson?.roleid == 2 || requestedPerson?.roleid == 1)) ){
+                    render requestedPerson.toJSON()
+                    return
+                }
+            }
+        }
+        render(status:404)
     }
 
     @Override
