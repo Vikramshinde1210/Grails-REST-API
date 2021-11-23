@@ -18,7 +18,9 @@ class Persons{
     String createdat
     String updatedat
     String password
-    String date_created;
+    String date_created
+    String accessToken
+    Date tokenexpiry
 
     List<String> roles
     transient springSecurityService
@@ -37,7 +39,8 @@ class Persons{
     }
 
     void addRole(String role){
-        roles.push("ROLE_" + role.toUpperCase())
+        if(roles.size() == 0)
+            roles.push("ROLE_" + role.toUpperCase())
     }
 
     def beforeInsert(){
