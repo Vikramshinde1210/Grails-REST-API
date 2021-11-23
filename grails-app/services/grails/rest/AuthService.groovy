@@ -26,16 +26,9 @@ class AuthService {
         return login.accessToken
     }
 
-    //  Return true if accessToken is valid else false
-    def checkAuth(token,uid,hm){
-        Persons log = Persons.findByIdAndAccessToken(uid,token)
-        if(log==null){
-            return false
-        }
-        Date now = new Date()
-        if(log.tokenexpiry < now){
-            hm.put("accessToken",gentoken(log.id))
-        }
-        return true
+    //  Return person if token is valid else return null
+    def checkAuth(token,uid){
+        Persons person = Persons.findByIdAndAccessToken(uid,token)
+        return person
     }
 }
