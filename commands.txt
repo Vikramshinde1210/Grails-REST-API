@@ -1,0 +1,7 @@
+grails run-app
+
+grails create-domain-class [name]
+
+grails create-service [name]
+
+grails create-controller [name]
