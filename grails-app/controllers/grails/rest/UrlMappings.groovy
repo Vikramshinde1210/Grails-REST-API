@@ -33,6 +33,7 @@ class UrlMappings {
 
         // Project
         "/api/getproject/$id"(controller: "project",action: "index",method: "GET")
+        "/api/verifyuser/$id"(controller: "ProjectGroup",action: "verifyUser",method: "GET")
 
         // Tasks
         "/api/tasks/$id"(controller:"ProjectTask",action: "show",method: "GET")
