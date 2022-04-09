@@ -8,4 +8,4 @@ environments:
   development:
     dataSource:
       dbCreate: update
-      url: "jdbc:mysql://localhost/project_monitoring_prod?userUnicode=yes&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+      url: "jdbc:mysql://localhost:3306/project_monitoring_prod2?userUnicode=yes&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"

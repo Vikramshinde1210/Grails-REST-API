@@ -30,7 +30,10 @@ class UrlMappings {
         // Signin
         "/api/auth/signin"(controller: "persons", action: "signin", method:"POST")
         "/api/auth/signup"(controller: "persons", action: "save", method:"POST")
-        
+
+        // Project
+        "/api/getproject/$id"(controller: "project",action: "index",method: "GET")
+
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
         "404"(view: '/notFound')

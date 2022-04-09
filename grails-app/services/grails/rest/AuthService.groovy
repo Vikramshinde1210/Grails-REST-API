@@ -1,12 +1,9 @@
 package grails.rest
 
 import grails.gorm.transactions.Transactional
-
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 import java.security.SecureRandom
-@Transactional
 
+@Transactional
 class AuthService {
     def tokenCreate(){
         final SecureRandom secureRandom = new SecureRandom(); //threadsafe
@@ -26,8 +23,18 @@ class AuthService {
         return login.accessToken
     }
 
+    def checkAuth(request){
+        def accessToken = request.getHeader("x-access-token")
+        def id = request.getHeader("id")
+        if(accessToken) {
+            Persons authAccount = checkAuth(accessToken, id)
+            return authAccount
+        }
+        return null
+    }
+
     //  Return person if token is valid else return null
-    def checkAuth(token,uid){
+    def checkAuth(token, uid){
         Persons person = Persons.findByIdAndAccessToken(uid,token)
         return person
     }

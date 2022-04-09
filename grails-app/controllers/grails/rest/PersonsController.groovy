@@ -80,6 +80,7 @@ class PersonsController extends RestfulController {
     def signin(){
         def jsonRequest = request.JSON
         Persons person = Persons.findByUsername(jsonRequest["username"])
+        println(person.username)
         if(person && person.isValidPassword(jsonRequest['password'])){
             person.addRole(Roles.findById(person.roleid).name)
             HashMap hm = new HashMap()
