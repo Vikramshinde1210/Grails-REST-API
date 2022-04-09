@@ -48,4 +48,12 @@ class ProjectGroupController extends RestfulController {
         else
             render (status:  404)
     }
+
+    def getProjectDetails(){
+        Persons authAccount = authService.checkAuth(request)
+        if (authAccount)
+            respond projectGroupService.getGroupDetailsByGroupId(params, request)
+        else
+            render (status:  404)
+    }
 }
