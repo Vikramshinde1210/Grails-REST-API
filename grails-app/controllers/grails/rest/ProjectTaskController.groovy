@@ -6,6 +6,7 @@ import grails.converters.*
 
 class ProjectTaskController extends RestfulController {
 	def projectTaskService
+    def authService
 	static responseFormats = ['json', 'xml']
 	
    ProjectTaskController() { 
@@ -19,7 +20,11 @@ class ProjectTaskController extends RestfulController {
 
     @Override
     def show() {
-        respond projectTaskService.single(params,request)
+        Persons authAccount = authService.checkAuth(request)
+        if (authAccount)
+            respond projectTaskService.single(params,request)
+        else
+            render (status:  404)
     }
     
     @Override
@@ -38,5 +43,13 @@ class ProjectTaskController extends RestfulController {
     def delete() {
         def roles = projectTaskService.delete(params,request)
         respond roles
+    }
+
+    def getStatus(){
+        Persons authAccount = authService.checkAuth(request)
+        if (authAccount)
+            respond projectTaskService.getStatusById(params,request)
+        else
+            render (status:  404)
     }
 }

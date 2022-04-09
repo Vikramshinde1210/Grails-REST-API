@@ -34,6 +34,10 @@ class UrlMappings {
         // Project
         "/api/getproject/$id"(controller: "project",action: "index",method: "GET")
 
+        // Tasks
+        "/api/tasks/$id"(controller:"ProjectTask",action: "show",method: "GET")
+        "/api/tasks/status/$id"(controller:"ProjectTask",action: "getStatus",method: "GET")
+
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
         "404"(view: '/notFound')
